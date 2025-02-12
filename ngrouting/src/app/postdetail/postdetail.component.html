@@ -1,17 +1,10 @@
-<table border="1px" *ngIf="post!=null; else loading">
-    <tr>
-        <th>UserId</th>
-        <th>id</th>
-        <th>title</th>
-        <th>body</th>
-    </tr>
-    <tr>
-        <td>{{post.userId}}</td>
-        <td>{{post.id}}</td>
-        <td>{{post.title}}</td>
-        <td>{{post.body}}</td>
-    </tr>
-</table>
+
+<h2> Post detail of {{id}}!</h2>
+<div *ngIf="post!=null; else loading">
+    <h3>User Id {{post.userId}}</h3>
+    <h4>{{post.title}}</h4>
+    <p>{{post.body}}</p>
+</div>
 
 <ng-template #loading>
     Loading...

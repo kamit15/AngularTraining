@@ -1,15 +1,15 @@
 <table border="1px" *ngIf="data!=null; else loading">
     <tr>
-        <th>UserId</th>
+        <!-- <th>UserId</th> -->
         <th>id</th>
         <th>title</th>
-        <th>body</th>
+        <!-- <th>body</th> -->
     </tr>
     <tr *ngFor="let d of data">
-        <td>{{d.userId}}</td>
-        <td><a routerLink="/post/{{d.id}}">{{d.id}}</a></td>
-        <td>{{d.title}}</td>
-        <td>{{d.body}}</td>
+        <!-- <td>{{d.userId}}</td> -->
+        <td>{{d.id}}</td>
+        <td><a routerLink="/post/{{d.id}}">{{d.title | slice:0:20}}</a></td>
+        <!-- <td>{{d.body}}</td> -->
     </tr>
 </table>
 
