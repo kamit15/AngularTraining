@@ -11,6 +11,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
 import { PostdetailComponent } from './postdetail/postdetail.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     UserComponent,
     UserdetailComponent,
     PostComponent,
-    PostdetailComponent
+    PostdetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

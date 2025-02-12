@@ -6,13 +6,16 @@ import { PnfComponent } from './pnf/pnf.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
 import { PostComponent } from './post/post.component';
 import { PostdetailComponent } from './postdetail/postdetail.component';
+import { LoginComponent } from './login/login.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'user', component: UserComponent },
   { path: 'user/:id', component: UserdetailComponent },
-  { path: 'post', component: PostComponent },
+  { path: 'post', component: PostComponent, canActivate: [authGuard] },
   { path: 'post/:id', component: PostdetailComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PnfComponent }
 ];
