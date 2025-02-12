@@ -1,0 +1,22 @@
+<p>postsdetailapi works!</p>
+
+<form #postform="ngForm" (ngSubmit)="submit(postform.value)">
+    <input type="text" name="id" placeholder="id" ngModel> <br/>
+    <input type="submit" value="Submit" [disabled]="postform.invalid">
+</form>
+<!-- 
+{{post|json}} -->
+<table border="1px" *ngIf="post!=null">
+    <tr>
+        <th>UserId</th>
+        <th>id</th>
+        <th>title</th>
+        <th>body</th>
+    </tr>
+    <tr>
+        <td>{{post.userId}}</td>
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.body}}</td>
+    </tr>
+</table>

@@ -1,0 +1,17 @@
+<p>postcallapi works!</p>
+<!-- {{data|json}} -->
+
+<table border="1px">
+    <tr>
+        <th>UserId</th>
+        <th>id</th>
+        <th>title</th>
+        <th>body</th>
+    </tr>
+    <tr *ngFor="let d of data">
+        <td>{{d.userId}}</td>
+        <td>{{d.id}}</td>
+        <td>{{d.title}}</td>
+        <td>{{d.body}}</td>
+    </tr>
+</table>

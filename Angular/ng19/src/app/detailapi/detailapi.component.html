@@ -1,0 +1,34 @@
+<p>detailapi works!</p>
+
+<form #idform="ngForm" (ngSubmit)="submit(idform.value)">
+    <input type="text" placeholder="eid" name="id" ngModel min="1" max="10" required> <br/>
+    <input type="submit" value="Submit" [disabled]="idform.invalid">
+</form>
+
+{{userdata |json}}
+
+<img src="https://appbucket22.s3.us-east-1.amazonaws.com/lotus.gif" height="150" width="100"/>
+
+<img src="{{path}}" height="150" width="100"/>
+
+<img [src]="path" height="150" width="100"/>
+
+
+<!-- scenario 2 --> Interpolation is preffered over property binding
+<img src="{{basepath}}lotus.gif" height="150" width="100"/> 
+<!-- Works -->
+<img src="{{basepath}}rose.gif" height="150" width="100"/>
+<img bind-src="path" height="150" width="170"/>
+
+<!-- Works -->
+
+<!-- Scenairo 3 --> property binding over Interpolation
+both are working
+<button disabled="{{flag}}">Click1</button>
+<button [disabled]="flag">Click2</button>
+
+one of them is not working-> porperty binding should be preffered
+
+<button disabled="{{flag2}}">Click3</button>
+<button [disabled]="flag2" (click)="show()">Click4</button>
+<button bind-disabled="flag2" on-click="show()">Click4</button>

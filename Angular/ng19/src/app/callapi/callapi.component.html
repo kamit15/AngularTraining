@@ -1,0 +1,41 @@
+<p>callapi works!</p>
+
+<!-- {{data |json}} -->
+
+
+<!-- 
+{ "id": 1, "name": "Leanne Graham", "username": "Bret", "email": "Sincere@april.biz", "address": { "street": "Kulas Light", "suite": "Apt. 556", "city": "Gwenborough", "zipcode": "92998-3874", "geo": { "lat": "-37.3159", "lng": "81.1496" } }, "phone": "1-770-736-8031 x56442", "website": "hildegard.org", "company": { "name": "Romaguera-Crona", "catchPhrase": "Multi-layered client-server neural-net", "bs": "harness real-time e-markets" } } -->
+<table border="1px">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>username</th>
+        <th>email</th>
+        <th>address.street</th>
+        <th>address.suite</th>
+        <th>address.city</th>
+        <th>address.geo.lat</th>
+        <th>address.geo.lng</th>
+        <th>phone</th>
+        <th>website</th>
+        <th>company.name</th>
+        <th>company.catchPhrase</th>
+        <th>company.bs</th>
+    </tr>
+    <tr *ngFor="let d of data">
+        <td>{{d['id']}}</td>
+        <td>{{d.name}}</td>
+        <td>{{d.username}}</td>
+        <td>{{d.email}}</td>
+        <td>{{d.address?.street}}</td>
+        <td>{{d.address?.suite}}</td>
+        <td>{{d.address?.city}}</td>
+        <td>{{d.address?.geo.lat}}</td>
+        <td>{{d.address?.geo.lng}}</td>
+        <td>{{d.phone}}</td>
+        <td>{{d.website}}</td>
+        <td>{{d.company?.name}}</td>
+        <td>{{d.company?.catchPhrase}}</td>
+        <td>{{d.company?.bs}}</td>
+    </tr>
+</table>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <header>
+        <h1>Registration Form</h1>
+    </header>
+    <nav>
+        <a href="">Link</a>
+    </nav>
+    <figure>
+        <img src="lotus.gif" alt="" height="100" width="150">
+        <figcaption>Lotus</figcaption>
+    </figure>
+    <main>
+        <form>
+            <table>
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" name="name" id="name" required minlength="2" maxlength="10"></td>
+                </tr>
+                <tr>
+                    <td><label for="age">Age:</label></td>
+                    <td><input type="number" name="age" id="age" min="10" max="75"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" name="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="dob">Date of Birth:</label></td>
+                    <td><input type="date" name="dob" id="dob"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td><input type="password" name="password" id="password"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">Gender:</label></td>
+                    <td><input type="radio" name="gender" id="male" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" id="female" value="female">
+                        <label for="female">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="mobile">Mobile No:</label></td>
+                    <td><input type="tel" name="mobile" id="mobile"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="linkedin">Website</label></td>
+                    <td><input type="url" name="linkedin" id="linkedin"></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Address:</label></td>
+                    <td> <textarea name="address" id="address"></textarea></td>
+                </tr>
+                <tr>
+                    <td> <label for="range">Range:</label></td>
+                    <td><input type="range" name="range" id="range"></td>
+                </tr>
+                <tr>
+                    <td><label for="browser">Choose your browser from the list:</label></td>
+                    <td>
+                        
+                        <input list="browsers" name="browser" id="browser">
+                        
+                        <datalist id="browsers">
+                          <option value="Edge">
+                          <option value="Firefox">
+                          <option value="Chrome">
+                          <option value="Opera">
+                          <option value="Safari">
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Qualification">Choose your Qualification:</label></td>
+                    <td>
+                        
+                        <input list="qualList" name="quali" id="quali">
+                        
+                        <datalist id="qualList">
+                          <option value="Graduate">
+                          <option value="Post Graduate">
+                          <option value="PHD">
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="color">FavColor:</label></td>
+                    <td><input type="color" name="color" id="color"></td>
+                </tr>
+                <tr>
+                    <td><label for="search">Search:</label></td>
+                    <td><input type="search" name="search" id="search"></td>
+                </tr>
+                <tr>
+                    <td><label for="hobbies">Hobbies</label></td>
+                    <td><input type="checkbox" name="read" id="read">
+                        <label for="read">Read</label>
+                        <input type="checkbox" name="write" id="write">
+                        <label for="write">Write</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="qualification">Qualification:</label></td>
+                    <td><select name="qualification" id="qualification">
+                            <option value="Grad">Grad</option>
+                            <option value="PG">PG</option>
+                            <option value="PHD">PHD</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td><label for="resume">Resume</label></td>
+                    <td><input type="file" name="resume" id="resume"></td>
+                </tr>
+                <tr>
+                    <td><input type="reset" value="Reset"></td>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </main>
+</body>
+
+</html>

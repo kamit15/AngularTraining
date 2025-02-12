@@ -1,0 +1,85 @@
+<h1 id="head">Hello KPMG Angular19 demo by {{name}}</h1>
+<!-- <app-postsdetailapi></app-postsdetailapi>
+<app-postcallapi></app-postcallapi> -->
+
+<app-detailapi></app-detailapi>
+<app-callapi></app-callapi>
+
+<app-tform></app-tform>
+
+<app-rform></app-rform>
+<h1 class="c1">Hello {{name}}</h1>
+
+{{games}}
+<ul>
+    <li *ngFor="let game of games">{{game}}</li>
+</ul>
+{{emp.eid + "" + emp.ename}}
+
+{{emp.eid}} {{emp.ename}}
+
+{{emp | json}}
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Name Uppercase</th>
+        <th>Name Slice 2</th>
+        <th>Name Slice 2 to 4</th>
+        <th>Gender Ab</th>
+        <th>Gender</th>
+        <th>Salary</th>
+        <th>Salary Number</th>
+        <th>Salary Currency</th>
+        <th>Salary INR </th>
+        <th>Tax</th>
+        <th>Retired</th>
+        <!-- <th>Date Of Joining</th> -->
+        <th>DOJ date</th>
+        <th>DOJ d/M/y</th>
+    </tr>
+    <tr *ngFor="let a of emps">
+        <td>{{a.eid}}</td>
+        <td>{{a.ename}}</td>
+        <td>{{a.ename | uppercase}}</td>
+        <td>{{a.ename | slice:2}}</td>
+        <td>{{a.ename | slice:2:4}}</td>
+        <td>{{a.gender}}</td>
+        <td>{{a.gender | gender}}</td>
+        <td [ngClass]="{'high':a.sal >75000, 'low':a.sal<=75000}">{{a.sal}}</td>
+        <td>{{a.sal | number}}</td>
+        <td>{{a.sal | currency}}</td>
+        <td>{{a.sal | currency:"INR"}}</td>
+        <td>{{a.sal | tax:0.2}}</td>
+        <td>{{a.sal | tax | currency:"INR"}}</td>
+        <td>{{a.retired}}</td>
+        <!-- <td>{{a.doj}}</td> -->
+        <td>{{a.doj | date}}</td>
+        <td>{{a.doj | date:"d/M/y"}}</td>
+        <td>
+            <img *ngIf="a.retired" src="https://www.icegif.com/wp-content/uploads/2022/04/icegif-931.gif" height="50"
+                width="50" />
+            <img *ngIf="!a.retired" src="https://i.pinimg.com/originals/d9/98/d1/d998d123da2480eb9fa1baded88830e1.gif"
+                height="50" width="50" />
+            <!-- https://github.com/abhishekcls/Angular19 -->
+
+            <img *ngIf="a.retired; else notretired"
+                src="https://www.icegif.com/wp-content/uploads/2022/04/icegif-931.gif" height="100" width="150" />
+            <ng-template #notretired>
+                <img src="https://i.pinimg.com/originals/d9/98/d1/d998d123da2480eb9fa1baded88830e1.gif" height="100"
+                    width="100" />
+            </ng-template>
+            <span [ngSwitch]="a.retired">
+                <img *ngSwitchCase="true" src="https://www.icegif.com/wp-content/uploads/2022/04/icegif-931.gif"
+                    height="100" width="100" alt="True Image">
+                <img *ngSwitchCase="false" src="https://i.pinimg.com/originals/d9/98/d1/d998d123da2480eb9fa1baded88830e1.gif"
+                    height="100" width="100" alt="False Image">
+            </span>
+        </td>
+    </tr>
+</table> 
+<table border="1">
+    <nested *ngFor="let e of emps" [emp]="e" (myevent)="nname=$event"></nested>
+</table>
+{{nname}}

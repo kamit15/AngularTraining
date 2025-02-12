@@ -1,0 +1,26 @@
+<table border="1px" *ngIf="users!=null; else loading">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>username</th>
+        <th>email</th>
+        <th>address</th>
+        <th>phone</th>
+        <th>website</th>
+        <th>company</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td>{{user['id']}}</td>
+        <td><a routerLink="/user/{{user.id}}">{{user.name}}</a></td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.address | json}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.website}}</td>
+        <td>{{user.company |json}}</td>
+    </tr>
+</table>
+
+<ng-template #loading>
+    Loading...
+</ng-template>

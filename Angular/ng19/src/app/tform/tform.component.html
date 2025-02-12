@@ -1,0 +1,7 @@
+<h1>Template Form</h1>
+
+<form #empform="ngForm" (ngSubmit)="submit(empform.value)">
+    <input type="text" name="eid" id="eid" placeholder="eid" ngModel required=> <br/>
+    <input type="text" name="ename" id="ename" placeholder="ename" [(ngModel)]="name"><br/>
+    <input type="submit" value="Submit">
+</form>
