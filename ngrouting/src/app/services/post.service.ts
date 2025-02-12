@@ -15,4 +15,8 @@ export class PostService {
   getPostById(id:string) {
     return this.http.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
   }
+
+  savePost(post:any) {
+    return this.http.post('https://jsonplaceholder.typicode.com/posts', post)
+  }
 }

@@ -1,15 +1,20 @@
+<form #postform="ngForm" (ngSubmit)="submit(postform.value)">
+    <input type="number" name="id" placeholder="id" ngModel required> <br />
+    <input type="text" name="title" placeholder="title" ngModel required> <br />
+    <input type="number" name="userId" placeholder="userId" ngModel required> <br />
+    <input type="text" name="body" placeholder="body" ngModel required> <br />
+    <input type="submit" value="Submit" [disabled]="postform.invalid">
+    <input type="reset" value="Reset">
+</form>
+
 <table border="1px" *ngIf="data!=null; else loading">
     <tr>
-        <!-- <th>UserId</th> -->
         <th>id</th>
         <th>title</th>
-        <!-- <th>body</th> -->
     </tr>
     <tr *ngFor="let d of data">
-        <!-- <td>{{d.userId}}</td> -->
         <td>{{d.id}}</td>
         <td><a routerLink="/post/{{d.id}}">{{d.title | slice:0:20}}</a></td>
-        <!-- <td>{{d.body}}</td> -->
     </tr>
 </table>
 

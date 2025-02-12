@@ -8,8 +8,16 @@ import { PostService } from '../services/post.service';
   styleUrl: './post.component.css'
 })
 export class PostComponent {
-  data:any;
-  constructor(private api:PostService){
+  data: any;
+  constructor(private api: PostService) {
     api.getPost().subscribe(p => this.data = p);
+  }
+
+  submit(post: any) {
+    console.log('before post', post);
+    this.api.savePost(post).subscribe(p => {
+      console.log('after post', p);
+      this.data.push(p);
+    });
   }
 }

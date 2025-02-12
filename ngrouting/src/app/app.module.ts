@@ -10,6 +10,7 @@ import { UserdetailComponent } from './userdetail/userdetail.component';
 import { provideHttpClient } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
 import { PostdetailComponent } from './postdetail/postdetail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PostdetailComponent } from './postdetail/postdetail.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
