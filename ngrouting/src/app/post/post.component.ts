@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
+import { Post } from '../models/post';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-post',
@@ -7,15 +9,27 @@ import { PostService } from '../services/post.service';
   templateUrl: './post.component.html',
   styleUrl: './post.component.css'
 })
-export class PostComponent {
-  data: any;
+export class PostComponent implements OnInit, OnDestroy {
+  data: Post[] = [];
+  s: Subscription;
+
   constructor(private api: PostService) {
-    api.getPost().subscribe(p => this.data = p);
+    console.log('Post Component Created');
+    this.s = this.api.getPost().subscribe((p: Post[]) => this.data = p);
   }
 
-  submit(post: any) {
+  ngOnInit() : void{
+    console.log('Post Component Initialized');
+  }
+
+  ngOnDestroy() : void{
+    console.log('Post Component Destroyed');
+    this.s.unsubscribe();
+  }
+
+  submit(post: Post) {
     console.log('before post', post);
-    this.api.savePost(post).subscribe(p => {
+    this.api.savePost(post).subscribe((p:Post)  => {
       console.log('after post', p);
       this.data.push(p);
     });

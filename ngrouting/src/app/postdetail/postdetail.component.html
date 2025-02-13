@@ -1,12 +1,12 @@
 
 <h2> Post detail of {{id}}!</h2>
-<div *ngIf="post!=null; else loading">
+<div *ngIf="post!=null;">
     <h3>User Id {{post.userId}}</h3>
     <h4>{{post.title}}</h4>
     <p>{{post.body}}</p>
 </div>
 
-<ng-template #loading>
-    Loading...
-</ng-template><br/>
+@if(post==null) {
+    <img src="https://hoodielab.com/wp-content/uploads/2022/02/loading-gif.gif" height="200" width="200"/>
+}<br/>
 <a routerLink="/post">Back to posts</a>
