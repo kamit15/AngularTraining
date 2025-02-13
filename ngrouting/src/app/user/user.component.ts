@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -7,10 +8,15 @@ import { UserService } from '../user.service';
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
-export class UserComponent {
-  users: any;
-  constructor(private api: UserService) {
-    api.getUsers()
-      .subscribe(u => this.users = u);
+export class UserComponent implements OnInit,OnDestroy{
+  s?:Subscription;
+  users:any;
+
+  us=inject(UserService);//DI
+  ngOnInit(){
+    this.s= this.us.getUsers().subscribe(u=>this.users=u);
+  }
+  ngOnDestroy(): void {
+    this.s?.unsubscribe();
   }
 }

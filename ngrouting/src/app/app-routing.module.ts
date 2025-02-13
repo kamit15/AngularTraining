@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'post', component: PostComponent, canActivate: [authGuard] },
   { path: 'post/:id', component: PostdetailComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'admin', loadChildren: () => import('./admin.module').then(m => m.AdminModule) },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PnfComponent }
 ];
