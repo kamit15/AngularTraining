@@ -8,6 +8,7 @@ const routes: Routes = [
   {
     path: '', component: AdminComponent,
     children: [
+      { path: '', redirectTo: 'c1', pathMatch: 'full' },
       { path: 'c1', component: C1Component },
       { path: 'c2', component: C2Component }
     ]
