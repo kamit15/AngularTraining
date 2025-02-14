@@ -13,7 +13,7 @@ export class DataService {
     this.counter++;
     this.counterChange.next(this.counter);
   }
-  decement(){
+  decrement(){
     this.counter--;
     this.counterChange.next(this.counter);
   }

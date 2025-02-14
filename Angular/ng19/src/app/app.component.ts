@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
+import { Subscription } from "rxjs";
+import { DataService } from "./data.service";
 
 @Component({
     selector: 'app-root',
@@ -23,6 +25,20 @@ export class AppComponent {
     games: string[] = ['hockey', 'cricket', 'Football'];
     nname: string = '';
     emp = { 'eid': 101, 'ename': 'Emp' };
+
+    counter: number = 0;
+    s?:Subscription;
+    ds = inject(DataService);
+
+    increment() {
+        this.counter++;
+        this.ds.increment();
+    }
+
+    decrement() {
+        this.counter--;
+        this.ds.decrement();
+    }   
 
     emps = [
         { 'eid': 1001, 'ename': 'Tarun', 'gender': 'M', 'sal': 45000, 'retired': false, 'doj': new Date("2011-01-05") },

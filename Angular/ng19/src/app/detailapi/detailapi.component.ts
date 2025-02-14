@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { RestApiService } from '../restapi.service';
+import { DataService } from '../data.service';
+import { Subscribable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-detailapi',
@@ -7,13 +9,30 @@ import { RestApiService } from '../restapi.service';
   templateUrl: './detailapi.component.html',
   styleUrl: './detailapi.component.css'
 })
-export class DetailapiComponent {
+export class DetailapiComponent implements OnInit, OnDestroy {
+
+  ds = inject(DataService);
+  counter: number = 0;
+  s? :Subscription;
+
   show() {
     alert('Hello')
   }
   userdata: any;
   path: any = "https://appbucket22.s3.us-east-1.amazonaws.com/lotus.gif";
   constructor(private api: RestApiService) {
+  }
+  ngOnDestroy(): void {
+    if(this.s) {
+      this.s?.unsubscribe();
+    }
+  }
+  
+  ngOnInit(): void {
+    this.s = this.ds.counterChange.subscribe((value) => {
+      console.log(value)
+      this.counter = value;
+    })
   }
 
   submit(data: any) {
