@@ -1,0 +1,23 @@
+<form #postform="ngForm" (ngSubmit)="submit(postform.value)">
+    <input type="number" name="id" placeholder="id" ngModel required> <br />
+    <input type="text" name="title" placeholder="title" ngModel required> <br />
+    <input type="number" name="userId" placeholder="userId" ngModel required> <br />
+    <input type="text" name="body" placeholder="body" ngModel required> <br />
+    <input type="submit" value="Submit" [disabled]="postform.invalid">
+    <input type="reset" value="Reset">
+</form>
+
+<table border="1px" *ngIf="data!=null">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+    </tr>
+    <tr *ngFor="let d of data">
+        <td>{{d.id}}</td>
+        <td><a routerLink="/post/{{d.id}}">{{d.title | slice:0:20}}</a></td>
+    </tr>
+</table>
+
+@if(data.length == 0) {
+    <img src="https://hoodielab.com/wp-content/uploads/2022/02/loading-gif.gif" height="200" width="200"/>
+}
